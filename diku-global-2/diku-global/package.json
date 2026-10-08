@@ -1,0 +1,30 @@
+{
+  "name": "diku-global-services",
+  "version": "2.0.0",
+  "description": "Diku Global Services - production full-stack company site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test tests/*.test.js",
+    "hash": "node scripts/hash.js",
+    "backup": "node --disable-warning=ExperimentalWarning scripts/backup.js",
+    "secret": "node -e \"console.log(require('crypto').randomBytes(48).toString('hex'))\""
+  },
+  "engines": { "node": ">=22.5" },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-validator": "^7.2.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

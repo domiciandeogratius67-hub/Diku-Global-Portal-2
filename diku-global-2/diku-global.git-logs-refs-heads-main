@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 f029695ac909a0d305895866ae7c11bdaa057bd9 Diku Global <noreply@example.com> 1791435638 +0000	commit (initial): Initial commit: Diku Global Services full-stack site
+f029695ac909a0d305895866ae7c11bdaa057bd9 a7c3b23373e894d89efb8456e5e8bbd348a1c153 Diku Global <noreply@example.com> 1791440518 +0000	commit: v2: SQLite, image uploads, error log, bot defence, deploy files
