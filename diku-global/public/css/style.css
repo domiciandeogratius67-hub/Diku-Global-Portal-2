@@ -1,0 +1,537 @@
+:root{
+  --paper:#F2F5F1; --lake:#0F3D3A; --lake-2:#17524e; --tanzanite:#3A2E8C; --sun:#E3A82B;
+  --ink:#16211F; --muted:#56635F; --line:#d5ddd8; --white:#fff; --danger:#a3262a;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:17px/1.55 var(--body);color:var(--ink);background:var(--paper)}
+img{max-width:100%;display:block}
+a{color:var(--tanzanite)}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.5vw,2.3rem)}
+h3{font-size:1.15rem}
+p{margin:0 0 1em;max-width:62ch}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{width:min(1120px,100% - 2rem);margin-inline:auto}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.5rem;z-index:99}
+
+header.site{background:var(--lake);color:#fff;position:sticky;top:0;z-index:20}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0}
+.brand{font:800 1.2rem var(--display);color:#fff;text-decoration:none}
+.brand span{color:var(--sun)}
+nav.main{display:flex;gap:1.1rem;flex-wrap:wrap}
+nav.main a{color:#dfeae7;text-decoration:none;font-weight:600;padding:.25rem 0;border-bottom:2px solid transparent}
+nav.main a:hover,nav.main a[aria-current]{color:#fff;border-color:var(--sun)}
+
+.btn{display:inline-block;border:0;border-radius:6px;padding:.7rem 1.2rem;font:700 1rem var(--body);cursor:pointer;text-decoration:none;background:var(--sun);color:var(--ink)}
+.btn:hover{filter:brightness(1.07)}
+.btn.alt{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn.dark{background:var(--lake);color:#fff}
+.btn[disabled]{opacity:.6;cursor:wait}
+
+.hero{position:relative;color:#fff;background:linear-gradient(120deg,var(--lake) 30%,var(--tanzanite));overflow:hidden;min-height:78vh;display:flex;align-items:flex-end}
+.hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s}
+.hero .slide.on{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,61,58,.92),rgba(15,61,58,.35) 70%)}
+.hero .wrap{position:relative;z-index:1;padding:5rem 0 3rem}
+.hero p{font-size:1.25rem;color:#e6f0ee}
+.hero .actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+
+section.block{padding:4rem 0}
+section.block.tint {
+    background: rgba(15, 23, 42, 0.6) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.lead{color:var(--muted);font-size:1.1rem}
+
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:1.5rem}
+.svc {
+    background: rgba(15, 23, 42, 0.65) !important; /* Premium dark slate glass fill */
+    backdrop-filter: blur(16px) !important;       /* High-end glass blur effect */
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important; /* Subtle glass border edge */
+    border-top: 5px solid var(--tanzanite) !important;       /* Maintains your deep top indicator bar */
+    border-radius: 12px !important;
+    padding: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    min-height: 190px;
+    transition: all 0.3s ease;
+}
+
+/* Force the service headings ("Real Estate", "Mining", etc.) to be highly-visible bright white */
+.svc h3 {
+    color: #ffffff !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    margin-top: 5px !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+}
+
+/* Force the small text summaries below the headings to become clear readable slate-white */
+.svc small {
+    color: #e2e8f0 !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+}
+
+/* Make your SVGs/Icons turn into a bright cyan/white so they don't look dark */
+.svc svg {
+    stroke: #00f2fe !important; /* Premium bright cyan for your icons */
+}
+
+.svc:hover{border-top-color:var(--sun);transform:translateY(-2px)}
+.svc svg{width:38px;height:38px;stroke:var(--tanzanite);fill:none;stroke-width:1.7}
+.svc small{color:var(--muted)}
+.pill{display:inline-block;align-self:flex-start;font-size:.8rem;font-weight:700;padding:.15rem .6rem;border-radius:99px;background:#d7f0e0;color:#0c5a2c}
+.pill.soon{background:#ece9fa;color:var(--tanzanite)}
+
+.rail{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.5rem 0 1rem}
+.rail>*{scroll-snap-align:start;flex:0 0 min(300px,82%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.card .img{aspect-ratio:4/3;background:linear-gradient(135deg,#dfe8e3,#c8d3ee);background-size:cover;background-position:center;display:grid;place-items:center;color:var(--tanzanite)}
+.card .img svg{width:64px;height:64px;stroke:currentColor;fill:none;stroke-width:1.4;opacity:.6}
+.card .body{padding:1rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.card .price{font:800 1.2rem var(--display);color:var(--lake)}
+.card .row{display:flex;gap:.5rem;margin-top:auto}
+.card .row .btn{flex:1;padding:.55rem .6rem}
+.tag{font-size:.8rem;font-weight:700;color:var(--tanzanite)}
+
+dialog{border:0;border-radius:8px;padding:0;width:min(480px,94vw);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(10,25,24,.6)}
+dialog .in{padding:1.4rem}
+dialog .x{float:right;background:none;border:0;font-size:1.6rem;cursor:pointer;line-height:1}
+ul.specs{padding-left:1.1rem;color:var(--muted)}
+
+form.stack{display:grid;gap:.8rem}
+label{font-weight:700;display:grid;gap:.25rem}
+input,select,textarea{font:inherit;padding:.6rem .7rem;border:1.5px solid #9aa9a4;border-radius:5px;background:#fff;width:100%}
+textarea{min-height:100px}
+.msg{padding:.6rem .8rem;border-radius:5px;background:#e6efe9}
+.msg.err{background:#f9e0e0;color:var(--danger)}
+.hp{position:absolute;left:-9999px}
+
+.soonbox{background:#fff;border:2px dashed var(--tanzanite);border-radius:8px;padding:2rem;text-align:center;margin:2rem 0}
+.soonbox h2{color:var(--tanzanite)}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.trust div{border-left:4px solid var(--sun);padding-left:.9rem}
+
+footer.site{background:var(--ink);color:#c5d1cd;padding:2.5rem 0;font-size:.95rem}
+footer.site a{color:#fff}
+footer.site .risk{border-top:1px solid #33443f;margin-top:1.2rem;padding-top:1rem;font-size:.85rem;color:#9fb0aa}
+
+.ai-fab{position:fixed;right:1rem;bottom:1rem;z-index:30;width:54px;height:54px;border-radius:50%;border:3px solid var(--sun);background:var(--tanzanite);color:#fff;font:800 1rem var(--display);cursor:pointer}
+.chat{max-height:240px;overflow:auto;display:grid;gap:.5rem;margin-bottom:.8rem}
+.chat p{margin:0;padding:.5rem .7rem;border-radius:8px;background:#eef2ef;max-width:none}
+.chat p.me{background:var(--tanzanite);color:#fff;justify-self:end}
+
+/* admin */
+.admin{padding:2rem 0}
+.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem}
+.tabs button{padding:.5rem 1rem;border:1.5px solid var(--lake);background:#fff;border-radius:5px;font-weight:700;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--lake);color:#fff}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:.95rem}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+.scroll{overflow-x:auto}
+.cols{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.wrap.narrow{max-width:640px}.wrap.narrow.wide{max-width:720px}
+main h1:not(.hero h1){font-size:2.4rem}
+.center{margin-inline:auto}
+.vh{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+label:focus-within>.vh+*{outline:3px solid var(--sun)}
+.btn.up{position:relative;display:inline-block;cursor:pointer}
+.btn.up:focus-within{outline:3px solid var(--sun);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-bottom:1rem}
+.stat{background:#fff;border:1px solid var(--line);border-left:5px solid var(--tanzanite);padding:.7rem 1rem}
+.stat b{display:block;font:800 1.8rem var(--display)}
+.stat.warn{border-left-color:var(--danger)}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.8rem;margin-top:1rem}
+.thumbs figure{margin:0;background:#fff;border:1px solid var(--line);padding:.4rem}
+.thumbs img{aspect-ratio:1;object-fit:cover;width:100%}
+.thumbs figcaption{display:flex;gap:.3rem;margin-top:.4rem}
+.thumbs .btn{padding:.3rem .5rem;font-size:.85rem}
+details summary{cursor:pointer;color:var(--tanzanite);font-weight:700}
+pre{white-space:pre-wrap;word-break:break-word;font-size:.8rem;background:#f1f3f2;padding:.5rem;max-width:560px}
+.badge{padding:.1rem .5rem;border-radius:99px;font-size:.8rem;font-weight:700;background:#f9e0e0;color:var(--danger)}
+.badge.ok{background:#d7f0e0;color:#0c5a2c}
+/* Custom Glassmorphism System Colors & Variables */
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-card: rgba(15, 23, 42, 0.55);
+    --glass-dock: rgba(255, 255, 255, 0.06);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-cyan: #06b6d4;
+    --accent-purple: #a855f7;
+    --accent-emerald: #10b981;
+}
+
+body {
+    background: var(--bg-gradient) !important;
+    color: var(--text-main);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Floating Fluid Ambient Blobs */
+.blob-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.4;
+    animation: floatAnimation 24s infinite ease-in-out alternate;
+}
+
+.blob-1 { top: -10%; left: -10%; width: 45vw; height: 45vw; background: radial-gradient(circle, var(--accent-purple), transparent); }
+.blob-2 { bottom: -15%; right: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, var(--accent-cyan), transparent); animation-delay: -6s; }
+.blob-3 { top: 45%; left: 35%; width: 32vw; height: 32vw; background: radial-gradient(circle, var(--accent-emerald), transparent); animation-delay: -12s; }
+
+@keyframes floatAnimation {
+    0% { transform: translate(0px, 0px) scale(1); }
+    50% { transform: translate(60px, -50px) scale(1.08); }
+    100% { transform: translate(-40px, 40px) scale(0.95); }
+}
+
+/* Glass UI Components */
+.glass-panel {
+    background: var(--glass-card) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+.glass-capsule {
+    background: var(--glass-dock) !important;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border) !important;
+}
+
+/* Redesign Form Fields to Glass Look */
+input, textarea, select {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--text-main) !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    border-color: var(--accent-cyan) !important;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4) !important;
+}
+/* ==========================================================================
+   DIKU GLOBAL - HIGH-CONTRAST VISIBILITY FIXED CSS OVERRIDES
+   ========================================================================== */
+
+/* --- 1. GLOBAL LAYOUT HEADINGS & PARAGRAPHS --- */
+/* This directly targets the "How we keep you safe" and "Live offerings" sections */
+body h2, 
+body h1 {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Forces all normal paragraph text descriptions to turn a solid, crisp bright white */
+body p,
+.svc small,
+footer p {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Fixes the titles under your safety icons ("Clear prices", "Talk before you pay", etc.) */
+body h3, 
+.card h3,
+.svc h3 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+
+/* --- 2. ADMIN PORTAL COMPONENT FIXES (Third Image) --- */
+/* Forces the background of the main data wrapper beneath the buttons to be dark glass instead of blinding solid white */
+#app div.scroll,
+#app table,
+div.scroll {
+    background: rgba(15, 23, 42, 0.85) !important; 
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 16px !important;
+    padding: 10px !important;
+}
+
+/* Forces all column headers in your admin records table to stay bold and bright white */
+table th {
+    color: #00f2fe !important; /* Premium cyan coloring for the header words */
+    font-weight: 800 !important;
+    padding: 14px 10px !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Forces all order records inside the data rows (Dates, Names, Shillings) to be crystal clear white */
+table td, 
+table td a {
+    color: #dacccc !important;
+    font-weight: 600 !important;
+    padding: 12px 10px !important;
+    text-decoration: none !important;
+}
+
+/* Subtle row divider background separation */
+table tr {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+table tr:hover {
+    background: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* --- 3. INPUT FIELDS & INPUT GRID BOXES --- */
+/* Direct fix for the form fields inside any edit/add popup panels */
+input, 
+textarea, 
+select {
+    background: #a1d1e1 !important; /* Solid bright white backing for forms */
+    color: #000000 !important;      /* Solid dark black readable text */
+    font-weight: 700 !important;
+    border: 2px solid #cbd5e1 !important;
+    border-radius: 10px !important;
+}
+/* ==========================================================================
+   DIKU GLOBAL - FINAL HIGH-CONTRAST READABILITY FIXED CSS OVERRIDES
+   ========================================================================== */
+
+/* --- 1. GLOBAL LAYOUT HEADINGS & PARAGRAPHS --- */
+body h2, 
+body h1 {
+    color: #cbcb0d !important;
+    font-weight: 800 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Forces all paragraph descriptions on the website to be highly readable white */
+body p,
+.svc small,
+footer p {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.663) !important;
+}
+
+/* Fixes the headings under your custom safety features icons */
+body h3, 
+.card h3,
+.svc h3 {
+    color: #c6cc0a !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(74, 66, 66, 0.996) !important;
+}
+
+/* --- 2. HEADER TOP NAVIGATION FIXED CONTRAST (First Image) --- */
+/* Forces all top-header menu text options to stand out brightly against the ambient orbs */
+header.site nav.main a,
+header.site a {
+    color: #dae2dd !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+    transition: color 0.2s ease;
+}
+header.site nav.main a:hover {
+    color: #00f2fe !important; /* Highlights on hover in a premium neon cyan color */
+}
+
+/* --- 3. ADMIN PANEL DASHBOARD STATS CARDS FIXED (Third Image) --- */
+/* This targets the summary statistics cards that are currently blinding white box blocks */
+#app .summary-card,
+#app .card,
+#app > div.cols > div,
+#app div[class*="cols"] > div,
+#app > div:nth-child(2) > div {
+    background: rgba(15, 23, 42, 0.75) !important; /* Elegant deep dark glass */
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    padding: 20px !important;
+    color: #ffffff !important;
+}
+
+/* Style the big numbers inside those metric boxes to stand out in bright electric cyan */
+#app div[class*="cols"] > div h2,
+#app div[class*="cols"] > div span,
+#app div[class*="cols"] > div figure,
+#app > div:nth-child(2) > div text,
+#app > div:nth-child(2) > div h2 {
+    color: #0e92b3 !important; 
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    margin-bottom: 4px !important;
+}
+
+/* Fixes the text labels under the numbers ("new orders", "active products", etc.) */
+#app div[class*="cols"] > div p,
+#app div[class*="cols"] > div small {
+    color: #94a3b8 !important; /* Crisp silver-slate readability gray */
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* --- 4. ADMIN DATA TABLES WRAPPER FIXED --- */
+#app div.scroll,
+#app table,
+div.scroll {
+    background: rgba(15, 23, 42, 0.85) !important; 
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 16px !important;
+    padding: 10px !important;
+}
+
+table th {
+    color: #00f2fe !important; 
+    font-weight: 800 !important;
+    padding: 14px 10px !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+table td, 
+table td a {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    padding: 12px 10px !important;
+    text-decoration: none !important;
+}
+
+table tr {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+table tr:hover {
+    background: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* --- 5. INPUT FIELDS & SYSTEM SELECTORS --- */
+input, 
+textarea, 
+select {
+    background: #ffffff !important; 
+    color: #000000 !important;      
+    font-weight: 700 !important;
+    border: 2px solid #cbd5e1 !important;
+    border-radius: 10px !important;
+}
+/* ==========================================================================
+   DIKU GLOBAL - FINAL PLUG CONTRAST FIXES
+   ========================================================================== */
+
+/* 1. Fix for Product Feature Bullet Lists (First Image) */
+ul.specs li,
+.specs,
+dialog ul li {
+    color: #ffffff !important;      /* Forces feature items to turn high-visibility bright white */
+    font-weight: 600 !important;    /* Makes the bullet text bold and readable */
+    opacity: 1 !important;
+    margin-bottom: 4px;
+}
+
+/* 2. Fix for Chat Help Assistant Bubble Greeting (Second Image) */
+.chat p {
+    background: rgba(15, 23, 42, 0.85) !important; /* Changes the light greeting bubble to a sleek dark glass pod */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;                     /* Turns the greeting message text bold bright white */
+    font-weight: 600 !important;
+    text-shadow: none !important;
+}
+
+/* 3. Fix for Coming Soon Notice Boxes (Third Image) */
+.soonbox {
+    background: rgba(15, 23, 42, 0.7) !important;  /* Transforms the blinding white box into a smoky dark glass zone */
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 2px dashed var(--tanzanite) !important; /* Restores your clean dashed structural accent line */
+    border-radius: 12px !important;
+    padding: 2.5rem 1.5rem !important;
+}
+
+/* Forces the "Coming soon" big header text to be highly visible */
+.soonbox h2 {
+    color: #00f2fe !important; /* Vibrant neon cyan so the header pops instantly */
+    font-weight: 800 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* Forces the long text message description below the header to be clean slate white */
+.soonbox p,
+.soonbox span {
+    color: #f8fafc !important; 
+    font-weight: 600 !important;
+    opacity: 1 !important;
+    line-height: 1.6 !important;
+}
+/* ==========================================================================
+   DIKU GLOBAL - PRODUCT CARD PRICE & TAG TEXT READABILITY FIXES
+   ========================================================================== */
+
+/* 1. Force the Price Text to stand out brilliantly */
+.card .price,
+#live .price,
+#spot .price,
+dialog p strong {
+    color: #00F2FE !important;     /* Changes the dark green price to a beautiful electric neon cyan */
+    font-weight: 800 !important;   /* Makes the numbers extra bold and professional */
+    font-size: 1.35rem !important; /* Slightly expands the price sizing for perfect visibility */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 2. Force the top device tag keyword ("High speed", "Portable", etc.) to be highly visible */
+.card .tag,
+#live .tag,
+#spot .tag,
+.tag {
+    color: #ffffff !important;      /* Changes the dark purple font into a crisp solid white */
+    background: rgba(255, 255, 255, 0.1) !important; /* Adds a clean, subtle glassy pill container behind the word */
+    padding: 2px 8px !important;    /* Clean spacing padding around the tag keyword text */
+    border-radius: 4px !important;  /* Rounded corners for the glass tag capsule wrapper edge */
+    font-weight: 700 !important;    /* Makes the word bold and readable */
+    font-size: 0.85rem !important;  /* Perfect small badge font scaling layout dimensions */
+    display: inline-block !important;
+    text-transform: uppercase !important; /* Forces uppercase characters to match high-end e-commerce style designs */
+    letter-spacing: 0.05em !important;
+}
